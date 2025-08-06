@@ -1181,49 +1181,24 @@ export default function Index() {
               </motion.div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-4 justify-center items-center px-4 sm:px-0 max-w-md mx-auto">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="w-full"
-              >
-                <Button
-                  onClick={handleWhatsAppClick}
-                  size="lg"
-                  className="bg-gradient-to-r from-moss to-teal hover:from-gold hover:to-gold text-white hover:text-charcoal transition-all duration-500 px-6 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 text-base sm:text-lg lg:text-xl font-work font-bold rounded-3xl shadow-2xl hover:shadow-3xl border-2 border-white/30 hover:border-gold/50 w-full"
-                >
-                  <WhatsAppIcon size={20} className="mr-2 flex-shrink-0" />
-                  <span className="text-center leading-tight">Transformar Meu Espaço Agora</span>
-                </Button>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="w-full"
-              >
-                <Button
-                  onClick={handleWhatsAppClick}
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-moss text-moss hover:bg-moss hover:text-white transition-all duration-300 px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 text-base sm:text-lg font-work font-semibold rounded-3xl w-full"
-                >
-                  Ver Galeria de Projetos
-                </Button>
-              </motion.div>
+            {/* CTA Final */}
+            <div className="px-4 sm:px-0 max-w-2xl mx-auto">
+              <EnhancedCTA
+                variant="urgent"
+                size="lg"
+                title="Transformar Meu Espaço Agora"
+                subtitle="Mais de 70 famílias já vivem o sonho. Chegou a minha vez!"
+                buttonText="Começar Minha Transformação Hoje"
+                urgencyText="🚀 Últimas vagas para começar em 2024"
+                highlights={[
+                  "Orçamento gratuito",
+                  "Garantia inclusa",
+                  "Começamos em 7 dias"
+                ]}
+                trustSignal="💚 Orçamento gratuito • ⭐ Garantia inclusa • 🚀 Começamos em 7 dias"
+                onClick={handleWhatsAppClick}
+              />
             </div>
-
-            {/* Supporting text */}
-            <motion.p
-              className="font-work text-sm text-charcoal/60 mt-8 max-w-lg mx-auto"
-              variants={fadeInUp}
-              transition={{ delay: 0.4 }}
-            >
-              💚 Orçamento gratuito • ⭐ Garantia inclusa • 🚀 Começamos em 7 dias
-            </motion.p>
           </motion.div>
         </div>
       </motion.section>
