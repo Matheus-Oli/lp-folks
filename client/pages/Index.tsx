@@ -1288,6 +1288,12 @@ export default function Index() {
         </div>
       </motion.section>
 
+      {/* Sticky Top CTA */}
+      <StickyTopCTA onWhatsAppClick={handleWhatsAppClick} />
+
+      {/* Floating CTA Banner */}
+      <FloatingCTABanner onWhatsAppClick={handleWhatsAppClick} />
+
       {/* Footer */}
       <Footer />
 
