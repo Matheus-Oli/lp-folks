@@ -932,7 +932,7 @@ export default function Index() {
               variants={fadeInUp}
             >
               Descubra como um lago ornamental pode transformar não apenas seu espaço,
-              mas toda sua experi��ncia de viver em harmonia com a natureza.
+              mas toda sua experiência de viver em harmonia com a natureza.
             </motion.p>
           </motion.div>
 
