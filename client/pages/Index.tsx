@@ -8,6 +8,7 @@ import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
 import FlipCard from "@/components/ui/flip-card";
 import FAQAccordion from "@/components/ui/faq-accordion";
 import Footer from "@/components/ui/footer";
+import { EnhancedCTA, CompactCTA } from "@/components/ui/enhanced-cta";
 import { Phone, Mail, Fish, Waves, Droplets, Leaf, MapPin, Clock, Award, Menu, X, Target, Lightbulb, Hammer, Sparkles, HeartHandshake, Shield, Users, Beaker, Crown, Heart, TreePine, Home, Zap, DollarSign, Smile } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -687,26 +688,23 @@ export default function Index() {
 
           {/* Call to Action */}
           <motion.div
-            className="text-center mt-16 px-4 sm:px-0"
+            className="mt-16 px-4 sm:px-0"
             variants={fadeInUp}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-full max-w-md mx-auto"
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-teal hover:bg-gold text-white hover:text-charcoal transition-all duration-300 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 text-sm sm:text-base lg:text-lg w-full h-auto min-h-[4rem] sm:min-h-[5rem]"
-              >
-                <WhatsAppIcon size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-center leading-tight break-words whitespace-normal">
-                  Descubra qual tipo de lago combina com seu espaço
-                </span>
-              </Button>
-            </motion.div>
+            <EnhancedCTA
+              variant="primary"
+              size="lg"
+              title="Descubra qual tipo de lago combina com meu espaço"
+              subtitle="Receba uma consultoria personalizada e gratuita para criar seu refúgio natural"
+              buttonText="Quero Minha Consultoria Gratuita"
+              highlights={[
+                "Consultoria gratuita",
+                "Projeto personalizado",
+                "Resposta em 24h"
+              ]}
+              trustSignal="Mais de 70 projetos entregues com garantia"
+              onClick={handleWhatsAppClick}
+            />
           </motion.div>
         </div>
       </motion.section>
@@ -795,30 +793,23 @@ export default function Index() {
 
           {/* Call to Action */}
           <motion.div
-            className="text-center"
             variants={fadeInUp}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-gradient-to-r from-moss to-teal hover:from-gold hover:to-gold text-white hover:text-charcoal transition-all duration-500 px-6 sm:px-8 lg:px-10 py-6 sm:py-8 text-base sm:text-lg lg:text-xl font-work font-semibold rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/20 hover:border-gold/50 w-full max-w-sm sm:max-w-md mx-auto h-auto min-h-[4rem] sm:min-h-[5rem]"
-              >
-                <WhatsAppIcon size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-center leading-tight">Quero ser o próximo cliente satisfeito</span>
-              </Button>
-            </motion.div>
-
-            <motion.p
-              className="font-work text-sm text-charcoal/60 mt-4"
-              variants={fadeInUp}
-            >
-              Junte-se aos mais de 70 clientes que já transformaram seus espaços
-            </motion.p>
+            <EnhancedCTA
+              variant="urgent"
+              size="lg"
+              title="Quero ser o próximo cliente satisfeito"
+              subtitle="Junte-se às famílias que já vivem em um refúgio natural exclusivo"
+              buttonText="Começar Meu Projeto Agora"
+              urgencyText="🔥 Últimas vagas para 2024"
+              highlights={[
+                "Garantia premium",
+                "70+ projetos entregues",
+                "Suporte pós-obra"
+              ]}
+              trustSignal="Garantia real da obra + acompanhamento pós-entrega"
+              onClick={handleWhatsAppClick}
+            />
           </motion.div>
         </div>
       </motion.section>
@@ -878,31 +869,23 @@ export default function Index() {
 
           {/* Call to Action */}
           <motion.div
-            className="text-center px-4 sm:px-0"
+            className="px-4 sm:px-0"
             variants={fadeInUp}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-full max-w-sm sm:max-w-md mx-auto"
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-gradient-to-r from-teal to-moss hover:from-gold hover:to-gold text-white hover:text-charcoal transition-all duration-500 px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-sm sm:text-base lg:text-lg font-work font-semibold rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/20 hover:border-gold/50 w-full"
-              >
-                <WhatsAppIcon size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-center leading-tight">Quero um lago assim no meu terreno</span>
-              </Button>
-            </motion.div>
-
-            <motion.p
-              className="font-work text-sm text-charcoal/60 mt-4 px-4"
-              variants={fadeInUp}
-            >
-              Transforme seu espaço em um refúgio natural único
-            </motion.p>
+            <EnhancedCTA
+              variant="secondary"
+              size="lg"
+              title="Quero um lago assim no meu terreno"
+              subtitle="Transforme seu espaço em um refúgio natural único e valorize seu imóvel"
+              buttonText="Ver Meu Projeto Personalizado"
+              highlights={[
+                "Projeto 3D gratuito",
+                "Valoriza o imóvel",
+                "Instalação em 7 dias"
+              ]}
+              trustSignal="Cada projeto é único, mas todos têm algo em comum: a satisfação total"
+              onClick={handleWhatsAppClick}
+            />
           </motion.div>
         </div>
       </motion.section>
@@ -974,31 +957,14 @@ export default function Index() {
 
           {/* Call to Action */}
           <motion.div
-            className="text-center px-4 sm:px-0"
+            className="px-4 sm:px-0"
             variants={fadeInUp}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-full max-w-sm sm:max-w-md mx-auto"
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-gradient-to-r from-moss to-teal hover:from-gold hover:to-gold text-white hover:text-charcoal transition-all duration-500 px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-sm sm:text-base lg:text-lg font-work font-semibold rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/20 hover:border-gold/50 w-full"
-              >
-                <WhatsAppIcon size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-center leading-tight">Quero falar com um especialista</span>
-              </Button>
-            </motion.div>
-
-            <motion.p
-              className="font-work text-sm text-charcoal/60 mt-4 px-4"
-              variants={fadeInUp}
-            >
-              Descubra como podemos criar o lago dos seus sonhos
-            </motion.p>
+            <CompactCTA
+              buttonText="Quero falar com um especialista"
+              subtitle="Descubra como posso criar o lago dos meus sonhos"
+              onClick={handleWhatsAppClick}
+            />
           </motion.div>
         </div>
       </motion.section>
@@ -1060,31 +1026,23 @@ export default function Index() {
 
           {/* Call to Action */}
           <motion.div
-            className="text-center px-4 sm:px-0"
+            className="px-4 sm:px-0"
             variants={fadeInUp}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-full max-w-sm sm:max-w-md mx-auto"
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-gradient-to-r from-moss to-teal hover:from-gold hover:to-gold text-white hover:text-charcoal transition-all duration-500 px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-sm sm:text-base lg:text-lg font-work font-semibold rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/20 hover:border-gold/50 w-full"
-              >
-                <WhatsAppIcon size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-center leading-tight">Quero viver isso também</span>
-              </Button>
-            </motion.div>
-
-            <motion.p
-              className="font-work text-sm text-charcoal/60 mt-4 px-4"
-              variants={fadeInUp}
-            >
-              Junte-se às famílias que já vivem em harmonia com a natureza
-            </motion.p>
+            <EnhancedCTA
+              variant="primary"
+              size="md"
+              title="Quero viver isso também"
+              subtitle="Junte-se às famílias que já vivem em harmonia com a natureza"
+              buttonText="Criar Meu Refúgio Natural"
+              highlights={[
+                "Depoimentos reais",
+                "Satisfação garantida",
+                "Suporte premium"
+              ]}
+              trustSignal="Mais de 70 famílias já transformaram seus lares"
+              onClick={handleWhatsAppClick}
+            />
           </motion.div>
         </div>
       </motion.section>
@@ -1145,33 +1103,23 @@ export default function Index() {
 
           {/* Call to Action */}
           <motion.div
-            className="text-center px-4 sm:px-0"
+            className="px-4 sm:px-0"
             variants={fadeInUp}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-full max-w-sm sm:max-w-md mx-auto"
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-gradient-to-r from-teal to-moss hover:from-gold hover:to-gold text-white hover:text-charcoal transition-all duration-500 px-6 sm:px-8 lg:px-12 py-6 sm:py-8 text-sm sm:text-base lg:text-lg font-work font-semibold rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/20 hover:border-gold/50 w-full h-auto min-h-[4rem] sm:min-h-[5rem]"
-              >
-                <WhatsAppIcon size={18} className="mr-2 flex-shrink-0" />
-                <span className="text-center leading-tight break-words whitespace-normal">
-                  Tire suas dúvidas direto com um especialista
-                </span>
-              </Button>
-            </motion.div>
-
-            <motion.p
-              className="font-work text-sm text-charcoal/60 mt-4 px-4"
-              variants={fadeInUp}
-            >
-              Resposta rápida e personalizada para seu projeto
-            </motion.p>
+            <EnhancedCTA
+              variant="outline"
+              size="md"
+              title="Tire minhas dúvidas direto com um especialista"
+              subtitle="Resposta rápida e personalizada para meu projeto"
+              buttonText="Esclarecer Minhas Dúvidas Agora"
+              highlights={[
+                "Resposta em 24h",
+                "Especialista dedicado",
+                "Sem compromisso"
+              ]}
+              trustSignal="Consultoria gratuita e sem compromisso"
+              onClick={handleWhatsAppClick}
+            />
           </motion.div>
         </div>
       </motion.section>
