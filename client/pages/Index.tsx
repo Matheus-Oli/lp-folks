@@ -768,29 +768,60 @@ export default function Index() {
               <motion.div
                 key={index}
                 variants={scaleIn}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                whileHover={{ y: -12, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 className="group"
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-moss/10 hover:border-moss/30 h-full">
-                  <motion.div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-moss/10 to-teal/10 text-moss mb-6 group-hover:from-moss group-hover:to-teal group-hover:text-white transition-all duration-300"
-                    whileHover={{ rotate: 5, scale: 1.1 }}
-                  >
-                    {item.icon}
-                  </motion.div>
+                <div className="relative overflow-hidden">
+                  {/* Background gradient card */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-moss/5 via-teal/5 to-gold/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-500"></div>
 
-                  <h3 className="font-playfair text-2xl font-bold text-charcoal mb-3 group-hover:text-moss transition-colors">
-                    {item.title}
-                  </h3>
+                  {/* Main content card */}
+                  <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-xl hover:shadow-3xl transition-all duration-500 border-l-4 border-l-moss group-hover:border-l-gold h-full">
 
-                  <p className="font-work text-gold font-semibold mb-4 text-sm tracking-wide">
-                    {item.subtitle}
-                  </p>
+                    {/* Header section with icon and badge */}
+                    <div className="flex items-start justify-between mb-6">
+                      <motion.div
+                        className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-moss to-teal text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300"
+                        whileHover={{ rotate: 10 }}
+                      >
+                        {item.icon}
+                      </motion.div>
 
-                  <p className="font-work text-charcoal/80 leading-relaxed">
-                    {item.description}
-                  </p>
+                      <motion.div
+                        className="bg-gold/10 text-gold px-3 py-1 rounded-full text-xs font-semibold border border-gold/20"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 + 0.3 }}
+                      >
+                        Premium
+                      </motion.div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="space-y-4">
+                      <h3 className="font-playfair text-xl lg:text-2xl font-bold text-charcoal group-hover:text-moss transition-colors duration-300">
+                        {item.title}
+                      </h3>
+
+                      <div className="border-l-2 border-l-gold/30 pl-4">
+                        <p className="font-work text-teal font-bold text-sm tracking-wide uppercase mb-2">
+                          {item.subtitle}
+                        </p>
+
+                        <p className="font-work text-charcoal/80 leading-relaxed text-sm lg:text-base">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Decorative bottom accent */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-moss via-teal to-gold opacity-30 group-hover:opacity-60 transition-opacity duration-300"></div>
+                  </div>
+
+                  {/* Floating decorative elements */}
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-gold/20 rounded-full blur-sm group-hover:bg-gold/40 transition-colors duration-300"></div>
+                  <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-moss/20 rounded-full blur-sm group-hover:bg-moss/40 transition-colors duration-300"></div>
                 </div>
               </motion.div>
             ))}
