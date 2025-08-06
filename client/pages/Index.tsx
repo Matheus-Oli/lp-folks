@@ -9,6 +9,7 @@ import FlipCard from "@/components/ui/flip-card";
 import FAQAccordion from "@/components/ui/faq-accordion";
 import Footer from "@/components/ui/footer";
 import { EnhancedCTA, CompactCTA } from "@/components/ui/enhanced-cta";
+import { FloatingCTABanner, StickyTopCTA } from "@/components/ui/floating-cta-banner";
 import { Phone, Mail, Fish, Waves, Droplets, Leaf, MapPin, Clock, Award, Menu, X, Target, Lightbulb, Hammer, Sparkles, HeartHandshake, Shield, Users, Beaker, Crown, Heart, TreePine, Home, Zap, DollarSign, Smile, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -1117,7 +1118,7 @@ export default function Index() {
               variant="primary"
               size="md"
               title="Quero viver isso também"
-              subtitle="Junte-se às fam��lias que já vivem em harmonia com a natureza"
+              subtitle="Junte-se às famílias que já vivem em harmonia com a natureza"
               buttonText="Criar Meu Refúgio Natural"
               highlights={[
                 "Depoimentos reais",
