@@ -254,7 +254,7 @@ export default function Index() {
       id: "property",
       icon: <Home className="h-12 w-12" />,
       title: "Valorização do Imóvel",
-      description: "Lagos ornamentais são um diferencial premium que pode aumentar significativamente o valor da sua propriedade, além de torná-la única e memorável para visitantes."
+      description: "Lagos ornamentais são um diferencial premium que pode aumentar significativamente o valor da sua propriedade, além de torná-la ��nica e memorável para visitantes."
     },
     {
       id: "energy",
@@ -573,6 +573,90 @@ export default function Index() {
                     <span>A areia mais limpa do Brasil</span>
                   </motion.div>
                 </motion.div>
+              </motion.div>
+
+              {/* Hero CTA */}
+              <motion.div
+                className="mt-8 lg:mt-12"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              >
+                <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl">
+                  <div className="text-center space-y-6">
+                    <motion.h3
+                      className="font-playfair text-xl md:text-2xl font-bold text-white leading-tight"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                    >
+                      Transforme meu espaço em um refúgio natural
+                    </motion.h3>
+
+                    <motion.p
+                      className="font-work text-white/90 text-sm md:text-base"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.1 }}
+                    >
+                      Consultoria gratuita • Projeto personalizado • Começamos em 7 dias
+                    </motion.p>
+
+                    <motion.div
+                      className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2 }}
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1"
+                      >
+                        <Button
+                          onClick={handleWhatsAppClick}
+                          size="lg"
+                          className="bg-gradient-to-r from-gold to-moss hover:from-white hover:to-white text-white hover:text-charcoal transition-all duration-500 px-6 py-4 text-base font-work font-bold rounded-2xl shadow-xl hover:shadow-2xl w-full group"
+                        >
+                          <WhatsAppIcon size={18} className="mr-2" />
+                          <span>Quero Meu Orçamento Gratuito</span>
+                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </motion.div>
+
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1"
+                      >
+                        <Button
+                          onClick={() => handleNavClick('#galeria')}
+                          variant="outline"
+                          size="lg"
+                          className="border-2 border-white/40 text-white hover:bg-white hover:text-charcoal transition-all duration-300 px-6 py-4 text-base font-work font-semibold rounded-2xl backdrop-blur-sm w-full"
+                        >
+                          Ver Projetos
+                        </Button>
+                      </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex items-center justify-center space-x-4 text-white/80 text-xs"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.3 }}
+                    >
+                      <div className="flex items-center space-x-1">
+                        <Shield className="h-3 w-3" />
+                        <span>Garantia inclusa</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Clock className="h-3 w-3" />
+                        <span>Resposta em 24h</span>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
               </motion.div>
 
             </motion.div>
@@ -1109,7 +1193,7 @@ export default function Index() {
             <EnhancedCTA
               variant="outline"
               size="md"
-              title="Tire minhas dúvidas direto com um especialista"
+              title="Tire minhas d��vidas direto com um especialista"
               subtitle="Resposta rápida e personalizada para meu projeto"
               buttonText="Esclarecer Minhas Dúvidas Agora"
               highlights={[
