@@ -9,7 +9,7 @@ import FlipCard from "@/components/ui/flip-card";
 import FAQAccordion from "@/components/ui/faq-accordion";
 import Footer from "@/components/ui/footer";
 import { EnhancedCTA, CompactCTA } from "@/components/ui/enhanced-cta";
-import { Phone, Mail, Fish, Waves, Droplets, Leaf, MapPin, Clock, Award, Menu, X, Target, Lightbulb, Hammer, Sparkles, HeartHandshake, Shield, Users, Beaker, Crown, Heart, TreePine, Home, Zap, DollarSign, Smile } from "lucide-react";
+import { Phone, Mail, Fish, Waves, Droplets, Leaf, MapPin, Clock, Award, Menu, X, Target, Lightbulb, Hammer, Sparkles, HeartHandshake, Shield, Users, Beaker, Crown, Heart, TreePine, Home, Zap, DollarSign, Smile, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight, staggerContainer, scaleIn } from "@/hooks/use-scroll-animation";
@@ -254,7 +254,7 @@ export default function Index() {
       id: "property",
       icon: <Home className="h-12 w-12" />,
       title: "Valorização do Imóvel",
-      description: "Lagos ornamentais são um diferencial premium que pode aumentar significativamente o valor da sua propriedade, além de torná-la ��nica e memorável para visitantes."
+      description: "Lagos ornamentais são um diferencial premium que pode aumentar significativamente o valor da sua propriedade, além de torná-la única e memorável para visitantes."
     },
     {
       id: "energy",
@@ -1117,7 +1117,7 @@ export default function Index() {
               variant="primary"
               size="md"
               title="Quero viver isso também"
-              subtitle="Junte-se às famílias que já vivem em harmonia com a natureza"
+              subtitle="Junte-se às fam��lias que já vivem em harmonia com a natureza"
               buttonText="Criar Meu Refúgio Natural"
               highlights={[
                 "Depoimentos reais",
@@ -1193,7 +1193,7 @@ export default function Index() {
             <EnhancedCTA
               variant="outline"
               size="md"
-              title="Tire minhas d��vidas direto com um especialista"
+              title="Tire minhas dúvidas direto com um especialista"
               subtitle="Resposta rápida e personalizada para meu projeto"
               buttonText="Esclarecer Minhas Dúvidas Agora"
               highlights={[
