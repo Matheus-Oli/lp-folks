@@ -105,12 +105,12 @@ export default function Index() {
     {
       icon: <Waves className="h-8 w-8" />,
       title: "Piscinas Naturais",
-      description: "Áreas de banho integradas à natureza, com filtração biológica e design que imita ambientes naturais."
+      description: "��reas de banho integradas à natureza, com filtração biológica e design que imita ambientes naturais."
     },
     {
       icon: <Droplets className="h-8 w-8" />,
       title: "Biopiscinas",
-      description: "Sistemas de tratamento natural da água, sem uso de químicos, criando um ambiente saud��vel e sustentável."
+      description: "Sistemas de tratamento natural da água, sem uso de químicos, criando um ambiente saudável e sustentável."
     }
   ];
 
@@ -317,14 +317,17 @@ export default function Index() {
         <div className="w-full max-w-[1500px] mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
+            <button
+              onClick={() => handleNavClick('#inicio')}
+              className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300"
+            >
              <img src="/favicon.ico" alt="" style={{ width: '48px' }} />
               <h1 className={`font-playfair text-2xl font-bold transition-colors duration-300 drop-shadow-lg ${
                 isScrolled ? 'text-moss' : 'text-white'
               }`}>
                 Folks Ecossistema
               </h1>
-            </div>
+            </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
@@ -932,7 +935,7 @@ export default function Index() {
               variants={fadeInUp}
             >
               Descubra como um lago ornamental pode transformar não apenas seu espaço,
-              mas toda sua experi��ncia de viver em harmonia com a natureza.
+              mas toda sua experiencia de viver em harmonia com a natureza.
             </motion.p>
           </motion.div>
 
