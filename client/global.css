@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 46 20% 96%;
+    --foreground: 180 15% 17%;
+
+    --card: 46 20% 96%;
+    --card-foreground: 180 15% 17%;
+
+    --popover: 46 20% 96%;
+    --popover-foreground: 180 15% 17%;
+
+    --primary: 157 24% 37%;
+    --primary-foreground: 46 20% 96%;
+
+    --secondary: 157 15% 70%;
+    --secondary-foreground: 180 15% 17%;
+
+    --muted: 40 26% 89%;
+    --muted-foreground: 157 10% 45%;
+
+    --accent: 42 45% 61%;
+    --accent-foreground: 180 15% 17%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 46 20% 96%;
+
+    --border: 157 15% 85%;
+    --input: 157 15% 85%;
+    --ring: 42 45% 61%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 46 20% 96%;
+    --sidebar-foreground: 180 15% 17%;
+    --sidebar-primary: 157 24% 37%;
+    --sidebar-primary-foreground: 46 20% 96%;
+    --sidebar-accent: 157 15% 90%;
+    --sidebar-accent-foreground: 180 15% 17%;
+    --sidebar-border: 157 15% 85%;
+    --sidebar-ring: 42 45% 61%;
+
+    /* Folks Ecossistema Brand Colors */
+    --moss: 157 24% 37%;
+    --moss-foreground: 46 20% 96%;
+    --teal: 192 39% 25%;
+    --teal-foreground: 46 20% 96%;
+    --aqua: 157 15% 70%;
+    --aqua-foreground: 180 15% 17%;
+    --sand: 40 26% 89%;
+    --sand-foreground: 180 15% 17%;
+    --gold: 42 45% 61%;
+    --gold-foreground: 180 15% 17%;
+    --off-white: 46 20% 96%;
+    --off-white-foreground: 180 15% 17%;
+    --charcoal: 0 0% 17%;
+    --charcoal-foreground: 46 20% 96%;
+  }
+
+  .dark {
+    --background: 0 0% 17%;
+    --foreground: 46 20% 96%;
+
+    --card: 0 0% 17%;
+    --card-foreground: 46 20% 96%;
+
+    --popover: 0 0% 17%;
+    --popover-foreground: 46 20% 96%;
+
+    --primary: 157 15% 70%;
+    --primary-foreground: 0 0% 17%;
+
+    --secondary: 192 39% 25%;
+    --secondary-foreground: 46 20% 96%;
+
+    --muted: 192 39% 25%;
+    --muted-foreground: 157 15% 70%;
+
+    --accent: 42 45% 61%;
+    --accent-foreground: 0 0% 17%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 46 20% 96%;
+
+    --border: 192 39% 25%;
+    --input: 192 39% 25%;
+    --ring: 42 45% 61%;
+    --sidebar-background: 0 0% 17%;
+    --sidebar-foreground: 46 20% 96%;
+    --sidebar-primary: 157 15% 70%;
+    --sidebar-primary-foreground: 0 0% 17%;
+    --sidebar-accent: 192 39% 25%;
+    --sidebar-accent-foreground: 46 20% 96%;
+    --sidebar-border: 192 39% 25%;
+    --sidebar-ring: 42 45% 61%;
+
+    /* Dark mode brand colors */
+    --moss: 157 24% 45%;
+    --moss-foreground: 46 20% 96%;
+    --teal: 192 39% 35%;
+    --teal-foreground: 46 20% 96%;
+    --aqua: 157 15% 70%;
+    --aqua-foreground: 0 0% 17%;
+    --sand: 40 26% 80%;
+    --sand-foreground: 0 0% 17%;
+    --gold: 42 45% 70%;
+    --gold-foreground: 0 0% 17%;
+    --off-white: 46 20% 90%;
+    --off-white-foreground: 0 0% 17%;
+    --charcoal: 0 0% 17%;
+    --charcoal-foreground: 46 20% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Default scrollbar behavior for desktop */
+  html {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+  }
+
+  /* Hide scrollbars on mobile only */
+  @media (max-width: 1023px) {
+    html {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      overflow-x: hidden;
+    }
+
+    html::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Hide scrollbars for all elements on mobile */
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom slider styles */
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    border: none;
+  }
+
+  /* 3D flip card utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
