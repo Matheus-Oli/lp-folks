@@ -110,7 +110,7 @@ export default function Index() {
     {
       icon: <Droplets className="h-8 w-8" />,
       title: "Biopiscinas",
-      description: "Sistemas de tratamento natural da água, sem uso de químicos, criando um ambiente saud��vel e sustentável."
+      description: "Sistemas de tratamento natural da água, sem uso de químicos, criando um ambiente saudável e sustentável."
     }
   ];
 
