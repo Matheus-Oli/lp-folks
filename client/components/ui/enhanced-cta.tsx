@@ -5,8 +5,8 @@ import { ArrowRight, Star, Shield, Clock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CTAProps {
-  variant?: 'primary' | 'secondary' | 'outline' | 'urgent';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: "primary" | "secondary" | "outline" | "urgent";
+  size?: "sm" | "md" | "lg";
   title: string;
   subtitle?: string;
   buttonText: string;
@@ -18,8 +18,8 @@ interface CTAProps {
 }
 
 export function EnhancedCTA({
-  variant = 'primary',
-  size = 'md',
+  variant = "primary",
+  size = "md",
   title,
   subtitle,
   buttonText,
@@ -27,26 +27,29 @@ export function EnhancedCTA({
   urgencyText,
   trustSignal,
   onClick,
-  className
+  className,
 }: CTAProps) {
-  
   const variants = {
     primary: {
       container: "bg-gradient-to-br from-moss/5 to-teal/5 border-moss/20",
-      button: "bg-gradient-to-r from-moss to-teal hover:from-gold hover:to-gold text-white hover:text-charcoal"
+      button:
+        "bg-gradient-to-r from-moss to-teal hover:from-gold hover:to-gold text-white hover:text-charcoal",
     },
     secondary: {
       container: "bg-gradient-to-br from-gold/5 to-aqua/5 border-gold/20",
-      button: "bg-gradient-to-r from-gold to-aqua hover:from-moss hover:to-teal text-charcoal hover:text-white"
+      button:
+        "bg-gradient-to-r from-gold to-aqua hover:from-moss hover:to-teal text-charcoal hover:text-white",
     },
     outline: {
       container: "border-moss/30 bg-white/50 backdrop-blur-sm",
-      button: "border-2 border-moss text-moss hover:bg-moss hover:text-white"
+      button: "border-2 border-moss text-moss hover:bg-moss hover:text-white",
     },
     urgent: {
-      container: "bg-gradient-to-br from-gold/10 to-moss/10 border-gold/40 shadow-lg",
-      button: "bg-gradient-to-r from-gold to-moss hover:from-moss hover:to-teal text-white animate-pulse"
-    }
+      container:
+        "bg-gradient-to-br from-gold/10 to-moss/10 border-gold/40 shadow-lg",
+      button:
+        "bg-gradient-to-r from-gold to-moss hover:from-moss hover:to-teal text-white animate-pulse",
+    },
   };
 
   const sizes = {
@@ -54,20 +57,20 @@ export function EnhancedCTA({
       container: "p-6 rounded-2xl",
       title: "text-lg font-semibold",
       subtitle: "text-sm",
-      button: "px-6 py-3 text-sm"
+      button: "px-6 py-3 text-sm",
     },
     md: {
       container: "p-8 rounded-3xl",
       title: "text-xl md:text-2xl font-bold",
       subtitle: "text-base",
-      button: "px-8 py-4 text-base"
+      button: "px-8 py-4 text-base",
     },
     lg: {
       container: "p-10 lg:p-12 rounded-3xl",
       title: "text-2xl md:text-3xl lg:text-4xl font-bold",
       subtitle: "text-lg md:text-xl",
-      button: "px-10 py-6 text-lg"
-    }
+      button: "px-10 py-6 text-lg",
+    },
   };
 
   return (
@@ -76,7 +79,7 @@ export function EnhancedCTA({
         "border shadow-xl hover:shadow-2xl transition-all duration-500 backdrop-blur-sm",
         variants[variant].container,
         sizes[size].container,
-        className
+        className,
       )}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +105,7 @@ export function EnhancedCTA({
         <motion.h3
           className={cn(
             "font-playfair text-charcoal leading-tight",
-            sizes[size].title
+            sizes[size].title,
           )}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -115,7 +118,7 @@ export function EnhancedCTA({
           <motion.p
             className={cn(
               "font-work text-charcoal/80 max-w-2xl mx-auto leading-relaxed",
-              sizes[size].subtitle
+              sizes[size].subtitle,
             )}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -167,11 +170,13 @@ export function EnhancedCTA({
               className={cn(
                 "transition-all duration-500 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/20 hover:border-gold/50 w-full font-work font-bold group",
                 variants[variant].button,
-                sizes[size].button
+                sizes[size].button,
               )}
             >
               <WhatsAppIcon size={20} className="mr-3 flex-shrink-0" />
-              <span className="text-center leading-tight flex-1">{buttonText}</span>
+              <span className="text-center leading-tight flex-1">
+                {buttonText}
+              </span>
               <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </motion.div>
@@ -203,7 +208,7 @@ export function CompactCTA({
   buttonText,
   subtitle,
   onClick,
-  className
+  className,
 }: {
   buttonText: string;
   subtitle?: string;
@@ -214,7 +219,7 @@ export function CompactCTA({
     <motion.div
       className={cn(
         "bg-gradient-to-r from-moss/10 to-teal/10 border border-moss/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300",
-        className
+        className,
       )}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -223,16 +228,15 @@ export function CompactCTA({
     >
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <div className="flex-1 text-center sm:text-left">
-          <p className="font-work text-charcoal font-semibold mb-1">{buttonText}</p>
+          <p className="font-work text-charcoal font-semibold mb-1">
+            {buttonText}
+          </p>
           {subtitle && (
             <p className="font-work text-charcoal/70 text-sm">{subtitle}</p>
           )}
         </div>
-        
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
+
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button
             onClick={onClick}
             size="lg"

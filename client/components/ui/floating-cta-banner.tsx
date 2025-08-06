@@ -10,7 +10,10 @@ interface FloatingCTABannerProps {
   className?: string;
 }
 
-export function FloatingCTABanner({ onWhatsAppClick, className }: FloatingCTABannerProps) {
+export function FloatingCTABanner({
+  onWhatsAppClick,
+  className,
+}: FloatingCTABannerProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -26,15 +29,18 @@ export function FloatingCTABanner({ onWhatsAppClick, className }: FloatingCTABan
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      
+      const scrollPercent =
+        (window.scrollY /
+          (document.documentElement.scrollHeight - window.innerHeight)) *
+        100;
+
       if (scrollPercent > 30 && !isDismissed) {
         setIsVisible(true);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isDismissed]);
 
   const handleDismiss = () => {
@@ -48,7 +54,7 @@ export function FloatingCTABanner({ onWhatsAppClick, className }: FloatingCTABan
         <motion.div
           className={cn(
             "fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-sm z-50",
-            className
+            className,
           )}
           initial={{ opacity: 0, y: 100, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -80,9 +86,10 @@ export function FloatingCTABanner({ onWhatsAppClick, className }: FloatingCTABan
               <h4 className="font-playfair text-lg font-bold text-white mb-2 leading-tight">
                 Consultoria Gratuita por Tempo Limitado
               </h4>
-              
+
               <p className="font-work text-white/90 text-sm mb-4 leading-relaxed">
-                Receba um projeto personalizado sem custo. Apenas algumas vagas disponíveis!
+                Receba um projeto personalizado sem custo. Apenas algumas vagas
+                disponíveis!
               </p>
 
               {/* Benefits */}
@@ -124,7 +131,11 @@ export function FloatingCTABanner({ onWhatsAppClick, className }: FloatingCTABan
 }
 
 // Componente de CTA sticky no topo
-export function StickyTopCTA({ onWhatsAppClick }: { onWhatsAppClick: () => void }) {
+export function StickyTopCTA({
+  onWhatsAppClick,
+}: {
+  onWhatsAppClick: () => void;
+}) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -133,8 +144,8 @@ export function StickyTopCTA({ onWhatsAppClick }: { onWhatsAppClick: () => void 
       setIsVisible(window.scrollY > heroHeight);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -151,10 +162,11 @@ export function StickyTopCTA({ onWhatsAppClick }: { onWhatsAppClick: () => void 
             <div className="flex items-center justify-between">
               <div className="text-white">
                 <span className="font-work text-sm md:text-base font-semibold">
-                  🌿 Consultoria Gratuita • Projeto Personalizado • Começamos em 7 dias
+                  🌿 Consultoria Gratuita • Projeto Personalizado • Começamos em
+                  7 dias
                 </span>
               </div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
