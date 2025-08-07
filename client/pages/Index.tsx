@@ -10,6 +10,7 @@ import FAQAccordion from "@/components/ui/faq-accordion";
 import Footer from "@/components/ui/footer";
 import { EnhancedCTA, CompactCTA } from "@/components/ui/enhanced-cta";
 import { StickyTopCTA } from "@/components/ui/floating-cta-banner";
+import { ConsultationForm } from "@/components/ui/consultation-form";
 import {
   Phone,
   Mail,
