@@ -135,12 +135,15 @@
     -ms-overflow-style: auto;
   }
 
-  /* Hide scrollbars on mobile only */
+  /* Mobile optimizations */
   @media (max-width: 1023px) {
     html {
       scrollbar-width: none;
       -ms-overflow-style: none;
       overflow-x: hidden;
+      /* Optimize scroll performance */
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: auto; /* Disable smooth scroll on mobile for better performance */
     }
 
     html::-webkit-scrollbar {
@@ -149,16 +152,28 @@
 
     body {
       overflow-x: hidden;
+      /* Optimize rendering */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     /* Hide scrollbars for all elements on mobile */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
+      /* Optimize touch interactions */
+      touch-action: manipulation;
     }
 
     *::-webkit-scrollbar {
       display: none;
+    }
+
+    /* Optimize fonts for mobile */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeSpeed; /* Faster text rendering on mobile */
     }
   }
 }
