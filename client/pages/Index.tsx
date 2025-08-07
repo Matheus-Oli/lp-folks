@@ -80,15 +80,25 @@ export default function Index() {
     setMobileMenuOpen(false);
   };
 
-  // Handle scroll to change header background
+  // Handle mobile detection and scroll
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
     const handleScroll = () => {
       const heroHeight = window.innerHeight * 0.8; // 80% of viewport height
       setIsScrolled(window.scrollY > heroHeight);
     };
 
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const navigation = [
