@@ -938,9 +938,9 @@ export default function Index() {
           </motion.div>
 
           {/* Video Carousel */}
-          <motion.div variants={fadeInUp} className="mb-16">
-            <VideoCarousel videos={galleryVideos} />
-          </motion.div>
+          <LazySection className="mb-16">
+            <OptimizedVideoCarousel videos={galleryVideos} />
+          </LazySection>
 
           {/* Call to Action */}
           <motion.div className="px-4 sm:px-0" variants={fadeInUp}>
