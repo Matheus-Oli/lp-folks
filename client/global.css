@@ -173,35 +173,62 @@
     display: none;
   }
 
-  /* Custom slider styles */
-  .slider::-webkit-slider-thumb {
-    appearance: none;
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
+  /* Performance optimized styles for mobile */
+
+  /* Reduce complexity on mobile */
+  @media (max-width: 1023px) {
+    .perspective-1000 {
+      perspective: none;
+    }
+
+    .preserve-3d {
+      transform-style: flat;
+    }
+
+    .backface-hidden {
+      backface-visibility: visible;
+    }
+
+    /* Disable complex animations on mobile for better performance */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
-  .slider::-moz-range-thumb {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
-    border: none;
-  }
+  /* Desktop-only complex styles */
+  @media (min-width: 1024px) {
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+    }
 
-  /* 3D flip card utilities */
-  .perspective-1000 {
-    perspective: 1000px;
-  }
+    .slider::-moz-range-thumb {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+      border: none;
+    }
 
-  .preserve-3d {
-    transform-style: preserve-3d;
-  }
+    .perspective-1000 {
+      perspective: 1000px;
+    }
 
-  .backface-hidden {
-    backface-visibility: hidden;
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
   }
 }
