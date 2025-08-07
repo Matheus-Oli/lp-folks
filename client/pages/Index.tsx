@@ -1084,9 +1084,9 @@ export default function Index() {
           </motion.div>
 
           {/* Testimonials Carousel */}
-          <motion.div variants={fadeInUp} className="mb-16">
+          <LazySection className="mb-16">
             <TestimonialsCarousel testimonials={testimonials} />
-          </motion.div>
+          </LazySection>
 
           {/* Call to Action */}
           <motion.div className="px-4 sm:px-0" variants={fadeInUp}>
@@ -1151,9 +1151,9 @@ export default function Index() {
           </motion.div>
 
           {/* FAQ Accordion */}
-          <motion.div variants={fadeInUp} className="mb-16">
+          <LazySection className="mb-16">
             <FAQAccordion items={faqItems} />
-          </motion.div>
+          </LazySection>
 
           {/* Call to Action */}
           <motion.div className="px-4 sm:px-0" variants={fadeInUp}>
