@@ -83,7 +83,7 @@ export function ConsultationForm({ onSubmit }: ConsultationFormProps) {
 *Dados para Consultoria:*
 Nome: ${formData.name}
 Telefone: ${formData.phone}
-${formData.email ? `📧 Email: ${formData.email}` : ''}
+${formData.email ? `Email: ${formData.email}` : ''}
 Disponibilidade: ${formData.availability}
 
 Aguardo retorno em até 24h conforme prometido!`;
