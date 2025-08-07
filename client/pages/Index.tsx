@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Stepper } from "@/components/ui/stepper";
 import { EnhancedStepper } from "@/components/ui/enhanced-stepper";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
-import VideoCarousel from "@/components/ui/video-carousel";
+import OptimizedVideoCarousel from "@/components/ui/optimized-video-carousel";
 import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
 import FlipCard from "@/components/ui/flip-card";
 import FAQAccordion from "@/components/ui/faq-accordion";
 import Footer from "@/components/ui/footer";
+import LazySection from "@/components/ui/lazy-section";
 import { EnhancedCTA, CompactCTA } from "@/components/ui/enhanced-cta";
 import { StickyTopCTA } from "@/components/ui/floating-cta-banner";
+import { ConsultationForm } from "@/components/ui/consultation-form";
 import {
   Phone,
   Mail,
@@ -41,6 +44,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import MobileHero from "@/components/ui/mobile-hero";
 import {
   useScrollAnimation,
   fadeInUp,
@@ -53,6 +57,7 @@ import {
 export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const whatsappNumber = "5511999999999"; // Replace with actual WhatsApp number
   const whatsappMessage =
     "Olá! Gostaria de saber mais sobre os lagos ornamentais da Folks Ecossistema.";
@@ -76,15 +81,25 @@ export default function Index() {
     setMobileMenuOpen(false);
   };
 
-  // Handle scroll to change header background
+  // Handle mobile detection and scroll
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
     const handleScroll = () => {
       const heroHeight = window.innerHeight * 0.8; // 80% of viewport height
       setIsScrolled(window.scrollY > heroHeight);
     };
 
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const navigation = [
@@ -116,7 +131,7 @@ export default function Index() {
       title: "Execução com Excelência",
       subtitle: "Do papel para a natureza.",
       description:
-        "Nossa equipe especializada entra em campo com cronograma bem definido. Toda a execução segue padrões de qualidade e segurança, com cuidado estético e respeito ao meio ambiente.",
+        "Nossa equipe especializada entra em campo com cronograma bem definido. Toda a execução segue padr��es de qualidade e segurança, com cuidado estético e respeito ao meio ambiente.",
       icon: <Hammer className="h-6 w-6" />,
     },
     {
@@ -301,7 +316,7 @@ export default function Index() {
     {
       id: "environment",
       icon: <TreePine className="h-12 w-12" />,
-      title: "Conexão com a Natureza",
+      title: "Conex��o com a Natureza",
       description:
         "Desperte para o canto dos pássaros, observe a vida aquática se desenvolver e sinta a energia renovadora que apenas um ecossistema natural pode proporcionar no seu dia a dia.",
     },
@@ -783,22 +798,9 @@ export default function Index() {
             <EnhancedStepper steps={serviceSteps} currentStep={4} />
           </motion.div>
 
-          {/* Call to Action */}
+          {/* Consultation Form */}
           <motion.div className="mt-16 px-4 sm:px-0" variants={fadeInUp}>
-            <EnhancedCTA
-              variant="primary"
-              size="lg"
-              title="Descubra qual tipo de lago combina com meu espaço"
-              subtitle="Receba uma consultoria personalizada e gratuita para criar seu refúgio natural"
-              buttonText="Quero Minha Consultoria Gratuita"
-              highlights={[
-                "Consultoria gratuita",
-                "Projeto personalizado",
-                "Resposta em 24h",
-              ]}
-              trustSignal="Mais de 70 projetos entregues com garantia"
-              onClick={handleWhatsAppClick}
-            />
+            <ConsultationForm />
           </motion.div>
         </div>
       </motion.section>
@@ -949,9 +951,9 @@ export default function Index() {
           </motion.div>
 
           {/* Video Carousel */}
-          <motion.div variants={fadeInUp} className="mb-16">
-            <VideoCarousel videos={galleryVideos} />
-          </motion.div>
+          <LazySection className="mb-16">
+            <OptimizedVideoCarousel videos={galleryVideos} />
+          </LazySection>
 
           {/* Call to Action */}
           <motion.div className="px-4 sm:px-0" variants={fadeInUp}>
@@ -1095,9 +1097,9 @@ export default function Index() {
           </motion.div>
 
           {/* Testimonials Carousel */}
-          <motion.div variants={fadeInUp} className="mb-16">
+          <LazySection className="mb-16">
             <TestimonialsCarousel testimonials={testimonials} />
-          </motion.div>
+          </LazySection>
 
           {/* Call to Action */}
           <motion.div className="px-4 sm:px-0" variants={fadeInUp}>
@@ -1162,9 +1164,9 @@ export default function Index() {
           </motion.div>
 
           {/* FAQ Accordion */}
-          <motion.div variants={fadeInUp} className="mb-16">
+          <LazySection className="mb-16">
             <FAQAccordion items={faqItems} />
-          </motion.div>
+          </LazySection>
 
           {/* Call to Action */}
           <motion.div className="px-4 sm:px-0" variants={fadeInUp}>

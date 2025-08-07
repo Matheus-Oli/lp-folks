@@ -135,12 +135,15 @@
     -ms-overflow-style: auto;
   }
 
-  /* Hide scrollbars on mobile only */
+  /* Mobile optimizations */
   @media (max-width: 1023px) {
     html {
       scrollbar-width: none;
       -ms-overflow-style: none;
       overflow-x: hidden;
+      /* Optimize scroll performance */
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: auto; /* Disable smooth scroll on mobile for better performance */
     }
 
     html::-webkit-scrollbar {
@@ -149,16 +152,28 @@
 
     body {
       overflow-x: hidden;
+      /* Optimize rendering */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     /* Hide scrollbars for all elements on mobile */
     * {
       scrollbar-width: none;
       -ms-overflow-style: none;
+      /* Optimize touch interactions */
+      touch-action: manipulation;
     }
 
     *::-webkit-scrollbar {
       display: none;
+    }
+
+    /* Optimize fonts for mobile */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeSpeed; /* Faster text rendering on mobile */
     }
   }
 }
@@ -173,35 +188,62 @@
     display: none;
   }
 
-  /* Custom slider styles */
-  .slider::-webkit-slider-thumb {
-    appearance: none;
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
+  /* Performance optimized styles for mobile */
+
+  /* Reduce complexity on mobile */
+  @media (max-width: 1023px) {
+    .perspective-1000 {
+      perspective: none;
+    }
+
+    .preserve-3d {
+      transform-style: flat;
+    }
+
+    .backface-hidden {
+      backface-visibility: visible;
+    }
+
+    /* Disable complex animations on mobile for better performance */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
-  .slider::-moz-range-thumb {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
-    border: none;
-  }
+  /* Desktop-only complex styles */
+  @media (min-width: 1024px) {
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+    }
 
-  /* 3D flip card utilities */
-  .perspective-1000 {
-    perspective: 1000px;
-  }
+    .slider::-moz-range-thumb {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+      border: none;
+    }
 
-  .preserve-3d {
-    transform-style: preserve-3d;
-  }
+    .perspective-1000 {
+      perspective: 1000px;
+    }
 
-  .backface-hidden {
-    backface-visibility: hidden;
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
   }
 }

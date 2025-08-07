@@ -2,8 +2,17 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/**/*.{ts,tsx}"],
+  content: [
+    "./client/**/*.{ts,tsx}",
+    "./client/pages/**/*.{ts,tsx}",
+    "./client/components/**/*.{ts,tsx}",
+  ],
   prefix: "",
+  // Optimize for production
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   theme: {
     container: {
       center: true,
@@ -14,8 +23,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'playfair': ['Playfair Display', 'serif'],
-        'work': ['Work Sans', 'sans-serif'],
+        playfair: ["Playfair Display", "serif"],
+        work: ["Work Sans", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
