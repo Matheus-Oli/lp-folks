@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, type ReactNode, memo } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  type ReactNode,
+  memo,
+} from "react";
 import { motion } from "framer-motion";
 
 interface LazySectionProps {
