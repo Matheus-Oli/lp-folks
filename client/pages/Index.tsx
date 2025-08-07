@@ -784,22 +784,9 @@ export default function Index() {
             <EnhancedStepper steps={serviceSteps} currentStep={4} />
           </motion.div>
 
-          {/* Call to Action */}
+          {/* Consultation Form */}
           <motion.div className="mt-16 px-4 sm:px-0" variants={fadeInUp}>
-            <EnhancedCTA
-              variant="primary"
-              size="lg"
-              title="Descubra qual tipo de lago combina com meu espaço"
-              subtitle="Receba uma consultoria personalizada e gratuita para criar seu refúgio natural"
-              buttonText="Quero Minha Consultoria Gratuita"
-              highlights={[
-                "Consultoria gratuita",
-                "Projeto personalizado",
-                "Resposta em 24h",
-              ]}
-              trustSignal="Mais de 70 projetos entregues com garantia"
-              onClick={handleWhatsAppClick}
-            />
+            <ConsultationForm />
           </motion.div>
         </div>
       </motion.section>
