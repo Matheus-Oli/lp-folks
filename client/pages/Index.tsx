@@ -43,6 +43,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import MobileHero from "@/components/ui/mobile-hero";
 import {
   useScrollAnimation,
   fadeInUp,
