@@ -56,6 +56,7 @@ import {
 export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const whatsappNumber = "5511999999999"; // Replace with actual WhatsApp number
   const whatsappMessage =
     "Olá! Gostaria de saber mais sobre os lagos ornamentais da Folks Ecossistema.";
@@ -119,7 +120,7 @@ export default function Index() {
       title: "Execução com Excelência",
       subtitle: "Do papel para a natureza.",
       description:
-        "Nossa equipe especializada entra em campo com cronograma bem definido. Toda a execução segue padrões de qualidade e segurança, com cuidado estético e respeito ao meio ambiente.",
+        "Nossa equipe especializada entra em campo com cronograma bem definido. Toda a execução segue padr��es de qualidade e segurança, com cuidado estético e respeito ao meio ambiente.",
       icon: <Hammer className="h-6 w-6" />,
     },
     {
@@ -304,7 +305,7 @@ export default function Index() {
     {
       id: "environment",
       icon: <TreePine className="h-12 w-12" />,
-      title: "Conexão com a Natureza",
+      title: "Conex��o com a Natureza",
       description:
         "Desperte para o canto dos pássaros, observe a vida aquática se desenvolver e sinta a energia renovadora que apenas um ecossistema natural pode proporcionar no seu dia a dia.",
     },
