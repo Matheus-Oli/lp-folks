@@ -582,28 +582,16 @@ export default function Index() {
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
-        {/* Video Background for Mobile */}
-        <div className="absolute inset-0 lg:hidden overflow-hidden bg-transparent">
-          <iframe
-            src="https://player.cloudinary.com/embed/?cloud_name=dbp865mgp&public_id=hero-background-mobile_kljqaa&profile=cld-default&fluid=true&controls=false&autoplay=true&loop=true&muted=true"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              width: "56.25vh",
-              height: "177.78vw",
-              minWidth: "100vw",
-              minHeight: "100vh",
-              transform: "translate(-50%, -50%)",
-              border: "none",
-              outline: "none",
-            }}
-            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-            allowFullScreen
-            frameBorder="0"
+        {/* Optimized Mobile Background */}
+        <div className="absolute inset-0 lg:hidden overflow-hidden bg-gradient-to-b from-moss/80 via-teal/60 to-charcoal/90">
+          <img
+            src="/backgrounds/water1.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
           />
           {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         {/* Content */}
