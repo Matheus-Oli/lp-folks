@@ -1,4 +1,4 @@
-import { lazy, Suspense, ComponentType } from 'react';
+import { lazy, Suspense, ComponentType } from "react";
 
 // Lazy loading fallback component
 const LoadingFallback = () => (
@@ -8,14 +8,18 @@ const LoadingFallback = () => (
 );
 
 // Lazy load heavy components
-export const LazyTestimonialsCarousel = lazy(() => import('@/components/ui/testimonials-carousel'));
-export const LazyFAQAccordion = lazy(() => import('@/components/ui/faq-accordion'));
-export const LazyFooter = lazy(() => import('@/components/ui/footer'));
+export const LazyTestimonialsCarousel = lazy(
+  () => import("@/components/ui/testimonials-carousel"),
+);
+export const LazyFAQAccordion = lazy(
+  () => import("@/components/ui/faq-accordion"),
+);
+export const LazyFooter = lazy(() => import("@/components/ui/footer"));
 
 // HOC for wrapping lazy components with Suspense
 export function withSuspense<T extends object>(
   Component: ComponentType<T>,
-  fallback = <LoadingFallback />
+  fallback = <LoadingFallback />,
 ) {
   return function WrappedComponent(props: T) {
     return (

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React, { useState, useRef, useEffect, useCallback, memo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface VideoData {
   id: string;
@@ -16,108 +16,120 @@ interface VideoCarouselProps {
 }
 
 // Lazy video player component that only loads when needed
-const LazyVideoPlayer = memo(({ 
-  src, 
-  poster, 
-  isActive, 
-  isVisible, 
-  className 
-}: {
-  src: string;
-  poster?: string;
-  isActive: boolean;
-  isVisible: boolean;
-  className?: string;
-}) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+const LazyVideoPlayer = memo(
+  ({
+    src,
+    poster,
+    isActive,
+    isVisible,
+    className,
+  }: {
+    src: string;
+    poster?: string;
+    isActive: boolean;
+    isVisible: boolean;
+    className?: string;
+  }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Only load video when it becomes visible
-  useEffect(() => {
-    if (isVisible && !isLoaded) {
-      setIsLoaded(true);
-    }
-  }, [isVisible, isLoaded]);
-
-  const handlePlay = useCallback(() => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
+    // Only load video when it becomes visible
+    useEffect(() => {
+      if (isVisible && !isLoaded) {
+        setIsLoaded(true);
       }
-      setIsPlaying(!isPlaying);
-    }
-  }, [isPlaying]);
+    }, [isVisible, isLoaded]);
 
-  // Auto-pause when not active (mobile optimization)
-  useEffect(() => {
-    if (!isActive && videoRef.current && isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  }, [isActive, isPlaying]);
+    const handlePlay = useCallback(() => {
+      if (videoRef.current) {
+        if (isPlaying) {
+          videoRef.current.pause();
+        } else {
+          videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+      }
+    }, [isPlaying]);
 
-  if (!isLoaded) {
-    return (
-      <div className={cn("relative bg-gradient-to-br from-moss/20 to-teal/20 rounded-2xl overflow-hidden", className)}>
-        {poster && (
-          <img
-            src={poster}
-            alt=""
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        )}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-            <Play className="h-6 w-6 text-white ml-1" />
+    // Auto-pause when not active (mobile optimization)
+    useEffect(() => {
+      if (!isActive && videoRef.current && isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }, [isActive, isPlaying]);
+
+    if (!isLoaded) {
+      return (
+        <div
+          className={cn(
+            "relative bg-gradient-to-br from-moss/20 to-teal/20 rounded-2xl overflow-hidden",
+            className,
+          )}
+        >
+          {poster && (
+            <img
+              src={poster}
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          )}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+              <Play className="h-6 w-6 text-white ml-1" />
+            </div>
           </div>
+        </div>
+      );
+    }
+
+    return (
+      <div
+        className={cn("relative rounded-2xl overflow-hidden group", className)}
+      >
+        <video
+          ref={videoRef}
+          src={src}
+          poster={poster}
+          className="w-full h-full object-cover"
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          onLoadedData={() => setIsLoaded(true)}
+        />
+
+        {/* Play/Pause overlay */}
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all duration-300 cursor-pointer"
+          onClick={handlePlay}
+        >
+          <AnimatePresence>
+            {!isPlaying && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg"
+              >
+                <Play className="h-6 w-6 text-moss ml-1" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     );
-  }
+  },
+);
 
-  return (
-    <div className={cn("relative rounded-2xl overflow-hidden group", className)}>
-      <video
-        ref={videoRef}
-        src={src}
-        poster={poster}
-        className="w-full h-full object-cover"
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        onLoadedData={() => setIsLoaded(true)}
-      />
-      
-      {/* Play/Pause overlay */}
-      <div 
-        className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all duration-300 cursor-pointer"
-        onClick={handlePlay}
-      >
-        <AnimatePresence>
-          {!isPlaying && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg"
-            >
-              <Play className="h-6 w-6 text-moss ml-1" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-});
+LazyVideoPlayer.displayName = "LazyVideoPlayer";
 
-LazyVideoPlayer.displayName = 'LazyVideoPlayer';
-
-const OptimizedVideoCarousel: React.FC<VideoCarouselProps> = ({ videos, className }) => {
+const OptimizedVideoCarousel: React.FC<VideoCarouselProps> = ({
+  videos,
+  className,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [visibleVideos, setVisibleVideos] = useState(new Set([0])); // Track which videos should be loaded
@@ -127,35 +139,35 @@ const OptimizedVideoCarousel: React.FC<VideoCarouselProps> = ({ videos, classNam
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Preload adjacent videos for smoother navigation
   useEffect(() => {
     const toLoad = new Set([currentIndex]);
-    
+
     // Load previous and next videos for smoother transition
     const prevIndex = currentIndex === 0 ? videos.length - 1 : currentIndex - 1;
     const nextIndex = currentIndex === videos.length - 1 ? 0 : currentIndex + 1;
-    
+
     toLoad.add(prevIndex);
     toLoad.add(nextIndex);
-    
+
     setVisibleVideos(toLoad);
   }, [currentIndex, videos.length]);
 
   const nextVideo = useCallback(() => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === videos.length - 1 ? 0 : prevIndex + 1
+    setCurrentIndex((prevIndex) =>
+      prevIndex === videos.length - 1 ? 0 : prevIndex + 1,
     );
   }, [videos.length]);
 
   const prevVideo = useCallback(() => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? videos.length - 1 : prevIndex - 1
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? videos.length - 1 : prevIndex - 1,
     );
   }, [videos.length]);
 
@@ -193,9 +205,7 @@ const OptimizedVideoCarousel: React.FC<VideoCarouselProps> = ({ videos, classNam
               onClick={() => scrollToVideo(index)}
               className={cn(
                 "w-2 h-2 rounded-full transition-all duration-300",
-                index === currentIndex
-                  ? "bg-moss w-4"
-                  : "bg-gray-300"
+                index === currentIndex ? "bg-moss w-4" : "bg-gray-300",
               )}
               aria-label={`Video ${index + 1}`}
             />
@@ -246,15 +256,13 @@ const OptimizedVideoCarousel: React.FC<VideoCarouselProps> = ({ videos, classNam
               key={`${video.id}-${actualIndex}`}
               className={cn(
                 "relative cursor-pointer transition-all duration-500",
-                isActive
-                  ? "w-80 h-[500px] z-20"
-                  : "w-60 h-[400px] z-10"
+                isActive ? "w-80 h-[500px] z-20" : "w-60 h-[400px] z-10",
               )}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{
                 opacity: isActive ? 1 : 0.6,
                 scale: isActive ? 1 : 0.85,
-                y: isActive ? 0 : 20
+                y: isActive ? 0 : 20,
               }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               onClick={() => scrollToVideo(actualIndex)}

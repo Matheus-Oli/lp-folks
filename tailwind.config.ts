@@ -23,8 +23,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'playfair': ['Playfair Display', 'serif'],
-        'work': ['Work Sans', 'sans-serif'],
+        playfair: ["Playfair Display", "serif"],
+        work: ["Work Sans", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

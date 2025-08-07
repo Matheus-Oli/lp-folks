@@ -19,26 +19,30 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           // React and core libraries
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
           // UI libraries
-          'vendor-ui': ['@radix-ui/react-dialog', '@radix-ui/react-tabs', '@radix-ui/react-accordion'],
+          "vendor-ui": [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-accordion",
+          ],
           // Animation libraries
-          'vendor-animation': ['framer-motion'],
+          "vendor-animation": ["framer-motion"],
           // Icons and utilities
-          'vendor-utils': ['lucide-react', 'clsx', 'tailwind-merge'],
+          "vendor-utils": ["lucide-react", "clsx", "tailwind-merge"],
           // Form libraries
-          'vendor-forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          "vendor-forms": ["react-hook-form", "@hookform/resolvers", "zod"],
         },
       },
     },
     // Optimize for mobile
-    target: ['es2020', 'chrome80', 'safari13'],
-    minify: 'terser',
+    target: ["es2020", "chrome80", "safari13"],
+    minify: "terser",
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info'],
+        pure_funcs: ["console.log", "console.info"],
       },
     },
     // Split chunks for better caching

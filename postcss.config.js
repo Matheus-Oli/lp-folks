@@ -3,10 +3,10 @@ export default {
     tailwindcss: {},
     autoprefixer: {},
     // CSS optimization for production
-    ...(process.env.NODE_ENV === 'production' && {
+    ...(process.env.NODE_ENV === "production" && {
       cssnano: {
         preset: [
-          'default',
+          "default",
           {
             // Optimize for mobile
             discardComments: {

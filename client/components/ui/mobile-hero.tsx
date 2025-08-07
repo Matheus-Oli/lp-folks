@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { motion } from 'framer-motion';
-import { Phone, MapPin, Award } from 'lucide-react';
-import { Button } from './button';
+import React, { memo } from "react";
+import { motion } from "framer-motion";
+import { Phone, MapPin, Award } from "lucide-react";
+import { Button } from "./button";
 
 interface MobileHeroProps {
   onWhatsAppClick: () => void;
@@ -50,7 +50,8 @@ const MobileHero = memo(({ onWhatsAppClick }: MobileHeroProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Lagos ornamentais e Piscinas Naturais com peixes • A areia mais limpa do Brasil
+            Lagos ornamentais e Piscinas Naturais com peixes • A areia mais
+            limpa do Brasil
           </motion.p>
 
           {/* Mobile Features */}
@@ -85,7 +86,7 @@ const MobileHero = memo(({ onWhatsAppClick }: MobileHeroProps) => {
               <Phone className="h-5 w-5 mr-2" />
               Consulta Gratuita WhatsApp
             </Button>
-            
+
             <p className="text-white/80 text-xs">
               Resposta em até 24h • Orçamento sem compromisso
             </p>
@@ -96,6 +97,6 @@ const MobileHero = memo(({ onWhatsAppClick }: MobileHeroProps) => {
   );
 });
 
-MobileHero.displayName = 'MobileHero';
+MobileHero.displayName = "MobileHero";
 
 export default MobileHero;
